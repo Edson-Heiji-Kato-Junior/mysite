@@ -25,15 +25,3 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text    
-    
-
-
-
-
-
-
-
-
-
-
-

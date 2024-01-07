@@ -1,0 +1,39 @@
+
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <div id="site-name">
+            <a href="{% url 'admin:index' %}">Polls Administration - Mysite
+
+            </a>
+        </div>
+    </h1>
+
+    {% if user.is_anonymous %}
+        {% include "admin/color_theme_toggle.html" %}
+    {% endif %}
+
+{% endblock %}
+
+
+<div id="content" class="{% block coltype %}colM{% endblock %}">
+    {% block pretitle  %}
+        <h1>Pagina em Branco</h1>    
+        <br>
+        <a href="{{ url_referencia }}"><button>Return</button></a>
+    {% endblock %}
+    {% block sidebar %}{% endblock %}
+    <br class="clear">
+  </div>
+
+
+
+
+{% block nav-global %}{% endblock %}
+
+
+
+

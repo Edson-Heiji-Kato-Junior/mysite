@@ -3,7 +3,38 @@
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><div id="site-name"><a href="{% url 'admin:index' %}">Polls Administration - Mysite</a><div></h1>
+    <h1 id="site-name">
+        <div id="site-name">
+            <a href="{% url 'admin:index' %}">Polls Administration - Mysite
+
+            </a>
+        </div>
+    </h1>
+
+    {% if user.is_anonymous %}
+        {% include "admin/color_theme_toggle.html" %}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content_title  %}
+    {% if title == 'Change question' %}
+        <h1>Edit question (questionを編集)</h1>
+    {% elif title == 'Site administration' %}        
+        <h1>{{title}}</h1>
+    {% elif title == 'Select question to change' %}        
+        <h1>{{title}}</h1>
+        <li>
+            <button><a href="new_page">New Page</a></button>
+        </li>
+          <br></br>
+    {% else %}        
+        <h1>{{title}}</h1>
+    {% endif %}
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+
+
+
