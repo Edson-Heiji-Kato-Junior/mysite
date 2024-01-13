@@ -25,3 +25,13 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text    
+    
+class QuestionCopy(Question):
+    class Meta:
+        proxy = True
+
+class ChoiceCopy(Choice):
+    class Meta:
+        proxy = True
+   
+
